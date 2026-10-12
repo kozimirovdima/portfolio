@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -32,8 +32,9 @@ img {
 }
 
 .hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.97), rgba(30, 41, 59, 0.9));
+  background:
+    radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.18), transparent 45%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.97), rgba(30, 41, 59, 0.9));
 }
 
 .topbar {
@@ -148,7 +149,22 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 40px;
-  align-items: start;
+  align-items: center;
+}
+
+.about-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 12px 28px rgba(249, 115, 22, 0.25);
 }
 
 .about-grid h2,
