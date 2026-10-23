@@ -17,16 +17,38 @@
       </nav>
 
       <div class="hero-content container">
-        <p class="eyebrow">Frontend-разработчик</p>
-        <h1>Привет, я Дмитрий.</h1>
-        <p class="lead">
-          Я делаю сайты и интерфейсы, которые выглядят аккуратно и работают
-          без лишнего шума. Мне важно сочетание хорошей структуры, скорости и
-          понятного пользовательского опыта.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn">Посмотреть проекты</a>
-          <a href="#contacts" class="btn btn-secondary">Написать</a>
+        <div class="hero-shell">
+          <div class="hero-copy">
+            <p class="eyebrow">Frontend-разработчик</p>
+            <h1>Привет, я Дмитрий.</h1>
+            <p class="lead">
+              Я делаю сайты и интерфейсы, которые выглядят аккуратно и работают
+              без лишнего шума. Мне важно сочетание хорошей структуры, скорости и
+              понятного пользовательского опыта.
+            </p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn">Посмотреть проекты</a>
+              <a href="#contacts" class="btn btn-secondary">Написать</a>
+            </div>
+            <ul class="hero-stats" aria-label="Основные показатели">
+              <li><strong>2+</strong><span>года практики</span></li>
+              <li><strong>8</strong><span>готовых проектов</span></li>
+              <li><strong>100%</strong><span>сфокусирован на UX</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-label="Фото автора и карточка статуса">
+            <div class="visual-card">
+              <img src="images/ava.jpg" alt="Фото Дмитрия в профиль" />
+              <div class="visual-meta">
+                <span class="status-dot"></span>
+                <div>
+                  <strong>Доступен для работы</strong>
+                  <small>Frontend / UI</small>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -36,13 +58,15 @@
         <p class="section-tag">Обо мне</p>
         <div class="about-grid">
           <div class="about-photo-wrap">
-            <img
-              class="avatar"
-              src="images/avatar.jpg"
-              alt="Фотография Дмитрия"
-            />
+            <div class="avatar-frame">
+              <img
+                class="avatar"
+                src="images/about-dev.svg"
+                alt="Иллюстрация веб-разработки"
+              />
+            </div>
           </div>
-          <div>
+          <div class="about-copy">
             <h2>Я — Дмитрий, и мне интересно делать интерфейсы по-человечески.</h2>
             <p>
               Я учусь веб-разработке на практике: оформляю страницы, собираю
@@ -56,6 +80,10 @@
               создавать решения, которые помогают людям, а не просто выглядят
               красиво на экране.
             </p>
+            <div class="mini-note">
+              <span>В приоритете</span>
+              <strong>Чистый код, понятная структура и эмоциональный дизайн</strong>
+            </div>
           </div>
         </div>
       </section>
@@ -66,8 +94,8 @@
           <article class="card">
             <img
               class="project-image"
-              src="images/todo-screenshot.svg"
-              alt="Скриншот приложения списка задач"
+              src="images/project-todo.svg"
+              alt="Иллюстрация приложения списка задач"
             />
             <span class="badge">JavaScript</span>
             <h3>Список задач</h3>
@@ -79,6 +107,11 @@
           </article>
 
           <article class="card">
+            <img
+              class="project-image"
+              src="images/project-brand.svg"
+              alt="Иллюстрация лэндинга для бренда"
+            />
             <span class="badge">Layout</span>
             <h3>Лэндинг для бренда</h3>
             <p>
@@ -89,6 +122,11 @@
           </article>
 
           <article class="card">
+            <img
+              class="project-image"
+              src="images/project-portfolio.svg"
+              alt="Иллюстрация портфолио сайта"
+            />
             <span class="badge">UI</span>
             <h3>Портфолио</h3>
             <p>
