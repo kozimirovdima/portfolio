@@ -11,9 +11,24 @@
   </head>
   <body>
     <header class="hero">
-      <nav class="topbar container">
+      <nav class="topbar container" aria-label="Главное меню">
         <a href="#" class="brand">Дмитрий</a>
-        <a href="#contacts" class="btn btn-small">Связаться</a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-panel" id="site-menu">
+          <div class="nav-links">
+            <a href="#about">Обо мне</a>
+            <a href="#projects">Проекты</a>
+            <a href="#skills">Навыки</a>
+            <a href="#contacts">Контакты</a>
+          </div>
+          <a href="#contacts" class="btn btn-small">Связаться</a>
+        </div>
       </nav>
 
       <div class="hero-content container">
@@ -138,7 +153,7 @@
         </div>
       </section>
 
-      <section class="section container">
+      <section id="skills" class="section container">
         <p class="section-tag">Навыки</p>
         <div class="skills">
           <span>HTML</span>
@@ -163,5 +178,31 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navPanel = document.querySelector('.nav-panel');
+
+      if (menuToggle && navPanel) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = navPanel.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        navPanel.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            navPanel.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 760) {
+            navPanel.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    </script>
   </body>
 </html>
