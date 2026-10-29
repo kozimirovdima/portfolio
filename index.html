@@ -4,17 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Дмитрий | Портфолио</title>
+    <meta
+      name="description"
+      content="Портфолио начинающего frontend-разработчика Дмитрия. Проекты на HTML, CSS и JavaScript: адаптивные интерфейсы, лендинги и приложения."
+    />
+
+    <!-- Open Graph для красивого превью при шаринге -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Дмитрий | Портфолио" />
+    <meta
+      property="og:description"
+      content="Начинающий frontend-разработчик. Адаптивные интерфейсы на HTML, CSS и JavaScript."
+    />
+    <meta property="og:image" content="images/ava.jpg" />
+    <meta name="theme-color" content="#f5f1eb" />
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
-    <header class="hero">
+    <!-- полоса прогресса скролла -->
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <header class="topbar-wrap">
       <nav class="topbar container" aria-label="Главное меню">
         <a href="#" class="brand">Дмитрий</a>
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="Открыть меню"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -27,15 +56,28 @@
             <a href="#skills">Навыки</a>
             <a href="#contacts">Контакты</a>
           </div>
+
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Переключить тему"
+            title="Светлая / тёмная тема"
+          >
+            <span class="theme-icon theme-icon--sun" aria-hidden="true"></span>
+            <span class="theme-icon theme-icon--moon" aria-hidden="true"></span>
+          </button>
+
           <a href="#contacts" class="btn btn-small">Связаться</a>
         </div>
       </nav>
+    </header>
 
+    <section class="hero">
       <div class="hero-content container">
         <div class="hero-shell">
-          <div class="hero-copy">
+          <div class="hero-copy reveal">
             <p class="eyebrow">Начинающий frontend</p>
-            <h1>Привет, я Дмитрий.</h1>
+            <h1>Привет, я <span class="accent-word">Дмитрий</span>.</h1>
             <p class="lead">
               Я изучаю веб-разработку и создаю простые, понятные и аккуратные
               интерфейсы. Сейчас главное для меня — закрепить основы HTML, CSS,
@@ -46,13 +88,13 @@
               <a href="#contacts" class="btn btn-secondary">Написать</a>
             </div>
             <ul class="hero-stats" aria-label="Основные показатели">
-              <li><strong>3</strong><span>практических проекта</span></li>
+              <li><strong>4</strong><span>проекта в портфолио</span></li>
               <li><strong>1</strong><span>настоящий сайт</span></li>
               <li><strong>100%</strong><span>в учебе и практике</span></li>
             </ul>
           </div>
 
-          <div class="hero-visual" aria-label="Фото автора и карточка статуса">
+          <div class="hero-visual reveal" aria-label="Фото автора и карточка статуса">
             <div class="visual-card">
               <img src="images/ava.jpg" alt="Фото Дмитрия в профиль" />
               <div class="visual-meta">
@@ -66,13 +108,13 @@
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
     <main>
       <section id="about" class="section container">
-        <p class="section-tag">Обо мне</p>
+        <p class="section-tag reveal">Обо мне</p>
         <div class="about-grid">
-          <div class="about-photo-wrap">
+          <div class="about-photo-wrap reveal">
             <div class="avatar-frame">
               <img
                 class="avatar"
@@ -81,7 +123,7 @@
               />
             </div>
           </div>
-          <div class="about-copy">
+          <div class="about-copy reveal">
             <h2>Я — Дмитрий, и мне интересно делать интерфейсы по-человечески.</h2>
             <p>
               Я учусь веб-разработке на практике: оформляю страницы, собираю
@@ -104,13 +146,58 @@
       </section>
 
       <section id="projects" class="section container">
-        <p class="section-tag">Проекты</p>
+        <p class="section-tag reveal">Проекты</p>
+
+        <!-- featured-проект -->
+        <article class="card card-featured reveal">
+          <div class="featured-media">
+            <img
+              src="images/project-alpa.png"
+              alt="Скриншот сайта «Альфа-Холод»"
+              loading="lazy"
+            />
+          </div>
+          <div class="featured-body">
+            <div class="featured-tags">
+              <span class="badge badge-featured">Работа</span>
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">Адаптив</span>
+            </div>
+            <h3>Альфа-Холод</h3>
+            <p>
+              Корпоративный сайт промышленной холодильной компании: каталог
+              оборудования, калькулятор подбора, блок заявки с валидацией и
+              секции с анимациями при скролле. Тёмный герой, акцентный бирюзовый,
+              полностью адаптивная вёрстка и работа с формами на JavaScript.
+            </p>
+            <div class="featured-actions">
+              <a
+                href="https://kozimirovdima.github.io/alpa-holod/"
+                target="_blank"
+                rel="noreferrer"
+                class="btn"
+                >Открыть сайт</a
+              >
+              <a
+                href="https://github.com/kozimirovdima/alpa-holod"
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-secondary"
+                >Код на GitHub</a
+              >
+            </div>
+          </div>
+        </article>
+
         <div class="projects-grid">
-          <article class="card">
+          <article class="card reveal">
             <img
               class="project-image"
-              src="images/project-todo.svg"
-              alt="Иллюстрация приложения списка задач"
+              src="images/project-todo.png"
+              alt="Скриншот приложения списка задач"
+              loading="lazy"
             />
             <span class="badge">JavaScript</span>
             <h3>Список задач</h3>
@@ -118,14 +205,20 @@
               Приложение для записи дел с добавлением, отметкой выполненных и
               сохранением состояния в браузере.
             </p>
-            <a href="https://kozimirovdima.github.io/my-site/" target="_blank" rel="noreferrer">Открыть проект</a>
+            <a
+              href="https://kozimirovdima.github.io/my-site/"
+              target="_blank"
+              rel="noreferrer"
+              >Открыть проект</a
+            >
           </article>
 
-          <article class="card">
+          <article class="card reveal">
             <img
               class="project-image"
               src="images/project-cafe.png"
               alt="Скриншот лендинга кофейни «Утро»"
+              loading="lazy"
             />
             <span class="badge">HTML · CSS</span>
             <h3>Лендинг кофейни</h3>
@@ -133,14 +226,20 @@
               Учебный проект: адаптивный одностраничный сайт для вымышленной
               кофейни. Grid, Flexbox, работа с изображениями.
             </p>
-            <a href="https://kozimirovdima.github.io/portfolio-coffe/" target="_blank" rel="noreferrer">Открыть проект</a>
+            <a
+              href="https://kozimirovdima.github.io/portfolio-coffe/"
+              target="_blank"
+              rel="noreferrer"
+              >Открыть проект</a
+            >
           </article>
 
-          <article class="card">
+          <article class="card reveal">
             <img
               class="project-image"
               src="images/project-portfolio.svg"
               alt="Иллюстрация портфолио сайта"
+              loading="lazy"
             />
             <span class="badge">UI</span>
             <h3>Портфолио</h3>
@@ -148,14 +247,19 @@
               Минималистичный сайт-портфолио, где важны читабельность, скорость и
               аккуратный визуальный стиль для представления своих работ.
             </p>
-            <a href="https://kozimirovdima.github.io/portfolio/" target="_blank" rel="noreferrer">Посмотреть</a>
+            <a
+              href="https://kozimirovdima.github.io/portfolio/"
+              target="_blank"
+              rel="noreferrer"
+              >Посмотреть</a
+            >
           </article>
         </div>
       </section>
 
       <section id="skills" class="section container">
-        <p class="section-tag">Навыки</p>
-        <div class="skills">
+        <p class="section-tag reveal">Навыки</p>
+        <div class="skills reveal">
           <span>HTML</span>
           <span>CSS</span>
           <span>JavaScript</span>
@@ -163,23 +267,48 @@
           <span>Адаптивный дизайн</span>
           <span>Работа с макетами</span>
         </div>
+        <div class="learning reveal">
+          <span class="learning-label">Изучаю сейчас</span>
+          <div class="learning-tags">
+            <span>React</span>
+            <span>TypeScript</span>
+            <span>Flexbox / Grid</span>
+            <span>Доступность</span>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer id="contacts" class="footer">
       <div class="container footer-inner">
-        <div>
+        <div class="footer-copy reveal">
           <p class="section-tag">Контакты</p>
           <h2>Давайте создавать полезный продукт.</h2>
+          <p class="footer-sub">
+            Открыт к проектам и стажировкам. Напишите — отвечу в течение дня.
+          </p>
+          <div class="footer-actions">
+            <a href="mailto:kozimirovdima23@gmail.com" class="btn">Написать на почту</a>
+            <button class="btn btn-secondary copy-email" type="button">
+              Скопировать e-mail
+            </button>
+          </div>
         </div>
-        <div class="contact-links">
-          <a href="https://github.com/kozimirovdima" target="_blank" rel="noreferrer">GitHub</a>
+
+        <div class="contact-links reveal">
+          <a href="https://github.com/kozimirovdima" target="_blank" rel="noreferrer"
+            >GitHub</a
+          >
           <a href="mailto:kozimirovdima23@gmail.com">kozimirovdima23@gmail.com</a>
         </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 Дмитрий. Сделано на HTML, CSS и JavaScript.</span>
       </div>
     </footer>
 
     <script>
+      // --- Мобильное меню ---
       const menuToggle = document.querySelector('.menu-toggle');
       const navPanel = document.querySelector('.nav-panel');
 
@@ -200,6 +329,70 @@
           if (window.innerWidth > 760) {
             navPanel.classList.remove('is-open');
             menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // --- Прогресс скролла ---
+      const progress = document.querySelector('.scroll-progress span');
+      const updateProgress = () => {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+        if (progress) progress.style.transform = `scaleX(${scrolled || 0})`;
+      };
+      document.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+
+      // --- Плавное появление секций ---
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealItems = document.querySelectorAll('.reveal');
+
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealItems.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        revealItems.forEach((el) => io.observe(el));
+      }
+
+      // --- Светлая / тёмная тема ---
+      const themeToggle = document.querySelector('.theme-toggle');
+      const root = document.documentElement;
+      const storedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const startTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+      root.setAttribute('data-theme', startTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const next =
+            root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+        });
+      }
+
+      // --- Копирование e-mail ---
+      const copyBtn = document.querySelector('.copy-email');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          const email = 'kozimirovdima23@gmail.com';
+          try {
+            await navigator.clipboard.writeText(email);
+            const original = copyBtn.textContent;
+            copyBtn.textContent = 'Скопировано!';
+            setTimeout(() => (copyBtn.textContent = original), 1600);
+          } catch (e) {
+            window.location.href = 'mailto:' + email;
           }
         });
       }
