@@ -6,7 +6,7 @@
     <title>Дмитрий | Портфолио</title>
     <meta
       name="description"
-      content="Портфолио начинающего frontend-разработчика Дмитрия. Проекты на HTML, CSS и JavaScript: адаптивные интерфейсы, лендинги и приложения."
+      content="Портфолио frontend-разработчика Дмитрия. Коммерческий сайт промышленной компании, лендинги и адаптивная вёрстка на HTML, CSS и JavaScript."
     />
 
     <!-- Open Graph для красивого превью при шаринге -->
@@ -14,22 +14,47 @@
     <meta property="og:title" content="Дмитрий | Портфолио" />
     <meta
       property="og:description"
-      content="Начинающий frontend-разработчик. Адаптивные интерфейсы на HTML, CSS и JavaScript."
+      content="Frontend-разработчик. Коммерческий сайт промышленной компании, лендинги и адаптивная вёрстка."
     />
-    <meta property="og:image" content="images/ava.jpg" />
-    <meta name="theme-color" content="#f5f1eb" />
+    <meta
+      property="og:image"
+      content="https://kozimirovdima.github.io/portfolio/images/ava.jpg"
+    />
+    <meta property="og:url" content="https://kozimirovdima.github.io/portfolio/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" id="theme-color" content="#f5f1eb" />
+
+    <!-- Тема и JS-гейт до отрисовки: без скрипта контент остаётся видимым -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var stored = null;
+        try {
+          stored = localStorage.getItem('theme');
+        } catch (e) {}
+        var theme =
+          stored ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light');
+        root.setAttribute('data-theme', theme);
+        root.classList.add('js');
+      })();
+    </script>
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
 
   <body>
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
     <!-- полоса прогресса скролла -->
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
@@ -60,7 +85,8 @@
           <button
             class="theme-toggle"
             type="button"
-            aria-label="Переключить тему"
+            aria-label="Включить тёмную тему"
+            aria-pressed="false"
             title="Светлая / тёмная тема"
           >
             <span class="theme-icon theme-icon--sun" aria-hidden="true"></span>
@@ -72,47 +98,45 @@
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="hero-content container">
-        <div class="hero-shell">
-          <div class="hero-copy reveal">
-            <p class="eyebrow">Начинающий frontend</p>
-            <h1>Привет, я <span class="accent-word">Дмитрий</span>.</h1>
-            <p class="lead">
-              Я изучаю веб-разработку и создаю простые, понятные и аккуратные
-              интерфейсы. Сейчас главное для меня — закрепить основы HTML, CSS,
-              JavaScript и научиться делать продукты, которыми удобно пользоваться.
-            </p>
-            <div class="hero-actions">
-              <a href="#projects" class="btn">Посмотреть проекты</a>
-              <a href="#contacts" class="btn btn-secondary">Написать</a>
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero-content container">
+          <div class="hero-shell">
+            <div class="hero-copy">
+              <h1>Привет, я <span class="accent-word">Дмитрий</span>.</h1>
+              <p class="lead">
+                Изучаю веб-разработку и делаю простые, понятные интерфейсы.
+                Закрепляю основы HTML, CSS и JavaScript и учусь делать продукты,
+                которыми удобно пользоваться.
+              </p>
+              <div class="hero-actions">
+                <a href="#projects" class="btn">Посмотреть проекты</a>
+                <a href="#contacts" class="btn btn-secondary">Написать</a>
+              </div>
+              <ul class="hero-proof" aria-label="Кратко о проектах">
+                <li>3 проекта</li>
+                <li>1 коммерческий сайт</li>
+                <li>HTML · CSS · JS</li>
+              </ul>
             </div>
-            <ul class="hero-stats" aria-label="Основные показатели">
-              <li><strong>4</strong><span>проекта в портфолио</span></li>
-              <li><strong>1</strong><span>настоящий сайт</span></li>
-              <li><strong>100%</strong><span>в учебе и практике</span></li>
-            </ul>
-          </div>
 
-          <div class="hero-visual reveal" aria-label="Фото автора и карточка статуса">
-            <div class="visual-card">
-              <img src="images/ava.jpg" alt="Фото Дмитрия в профиль" />
-              <div class="visual-meta">
-                <span class="status-dot"></span>
-                <div>
-                  <strong>Доступен для работы</strong>
-                  <small>Frontend / UI</small>
+            <div class="hero-visual" aria-label="Фото автора и карточка статуса">
+              <div class="visual-card">
+                <img src="images/ava.jpg" alt="Фото Дмитрия в профиль" />
+                <div class="visual-meta">
+                  <span class="status-dot"></span>
+                  <div>
+                    <strong>Доступен для работы</strong>
+                    <small>Frontend / UI</small>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <main>
       <section id="about" class="section container">
-        <p class="section-tag reveal">Обо мне</p>
         <div class="about-grid">
           <div class="about-photo-wrap reveal">
             <div class="avatar-frame">
@@ -124,29 +148,29 @@
             </div>
           </div>
           <div class="about-copy reveal">
-            <h2>Я — Дмитрий, и мне интересно делать интерфейсы по-человечески.</h2>
+            <h2>От учебных макетов — к коммерческому сайту.</h2>
             <p>
-              Я учусь веб-разработке на практике: оформляю страницы, собираю
-              компоненты, разбираюсь в HTML, CSS и JavaScript. Мне важен не
-              только внешний вид, но и логика взаимодействия: чтобы человеку
-              было удобно, быстро и понятно.
+              Первый заказ — «Альфа-Холод», сайт промышленной холодильной
+              компании. Там я собрал каталог оборудования, калькулятор подбора и
+              форму заявки: от структуры страницы до адаптива и проверки данных
+              на JavaScript.
             </p>
             <p>
-              Сейчас я активно развиваюсь в frontend, делаю небольшие проекты,
-              изучаю доступность, адаптивность и качество кода. Мне интересно
-              создавать решения, которые помогают людям, а не просто выглядят
-              красиво на экране.
+              Сейчас развиваюсь во frontend: разбираюсь в доступности,
+              адаптивности и качестве кода. Мне важно, чтобы страница быстро
+              загружалась, работала с клавиатуры и оставалась понятной на
+              телефоне.
             </p>
             <div class="mini-note">
               <span>В приоритете</span>
-              <strong>Чистый код, понятная структура и эмоциональный дизайн</strong>
+              <strong>Понятная структура, аккуратный код и внимание к деталям</strong>
             </div>
           </div>
         </div>
       </section>
 
       <section id="projects" class="section container">
-        <p class="section-tag reveal">Проекты</p>
+        <h2 class="section-tag reveal">Проекты</h2>
 
         <!-- featured-проект -->
         <article class="card card-featured reveal">
@@ -163,14 +187,13 @@
               <span class="badge">HTML</span>
               <span class="badge">CSS</span>
               <span class="badge">JavaScript</span>
-              <span class="badge">Адаптив</span>
             </div>
             <h3>Альфа-Холод</h3>
             <p>
               Корпоративный сайт промышленной холодильной компании: каталог
               оборудования, калькулятор подбора, блок заявки с валидацией и
-              секции с анимациями при скролле. Тёмный герой, акцентный бирюзовый,
-              полностью адаптивная вёрстка и работа с формами на JavaScript.
+              анимации при скролле. Тёмный герой, бирюзовый акцент, адаптивная
+              вёрстка и формы на JavaScript.
             </p>
             <div class="featured-actions">
               <a
@@ -178,6 +201,7 @@
                 target="_blank"
                 rel="noreferrer"
                 class="btn"
+                aria-label="Открыть сайт «Альфа-Холод»"
                 >Открыть сайт</a
               >
               <a
@@ -185,6 +209,7 @@
                 target="_blank"
                 rel="noreferrer"
                 class="btn btn-secondary"
+                aria-label="Код «Альфа-Холод» на GitHub"
                 >Код на GitHub</a
               >
             </div>
@@ -195,41 +220,21 @@
           <article class="card reveal">
             <img
               class="project-image"
-              src="images/project-todo.png"
-              alt="Скриншот приложения списка задач"
-              loading="lazy"
-            />
-            <span class="badge">JavaScript</span>
-            <h3>Список задач</h3>
-            <p>
-              Приложение для записи дел с добавлением, отметкой выполненных и
-              сохранением состояния в браузере.
-            </p>
-            <a
-              href="https://kozimirovdima.github.io/my-site/"
-              target="_blank"
-              rel="noreferrer"
-              >Открыть проект</a
-            >
-          </article>
-
-          <article class="card reveal">
-            <img
-              class="project-image"
               src="images/project-cafe.png"
               alt="Скриншот лендинга кофейни «Утро»"
               loading="lazy"
             />
-            <span class="badge">HTML · CSS</span>
             <h3>Лендинг кофейни</h3>
+            <p class="card-meta">2026 · HTML · CSS</p>
             <p>
-              Учебный проект: адаптивный одностраничный сайт для вымышленной
-              кофейни. Grid, Flexbox, работа с изображениями.
+              Адаптивный одностраничный сайт для вымышленной кофейни. Grid,
+              Flexbox, работа с изображениями.
             </p>
             <a
               href="https://kozimirovdima.github.io/portfolio-coffe/"
               target="_blank"
               rel="noreferrer"
+              aria-label="Открыть проект «Лендинг кофейни»"
               >Открыть проект</a
             >
           </article>
@@ -241,24 +246,25 @@
               alt="Иллюстрация портфолио сайта"
               loading="lazy"
             />
-            <span class="badge">UI</span>
             <h3>Портфолио</h3>
+            <p class="card-meta">2026 · HTML · CSS · JS</p>
             <p>
-              Минималистичный сайт-портфолио, где важны читабельность, скорость и
-              аккуратный визуальный стиль для представления своих работ.
+              Код этого сайта: токены темы, светлая и тёмная версии, доступная
+              навигация и анимации появления.
             </p>
             <a
-              href="https://kozimirovdima.github.io/portfolio/"
+              href="https://github.com/kozimirovdima/portfolio"
               target="_blank"
               rel="noreferrer"
-              >Посмотреть</a
+              aria-label="Смотреть код этого портфолио на GitHub"
+              >Смотреть код</a
             >
           </article>
         </div>
       </section>
 
       <section id="skills" class="section container">
-        <p class="section-tag reveal">Навыки</p>
+        <h2 class="section-tag reveal">Навыки</h2>
         <div class="skills reveal">
           <span>HTML</span>
           <span>CSS</span>
@@ -282,7 +288,6 @@
     <footer id="contacts" class="footer">
       <div class="container footer-inner">
         <div class="footer-copy reveal">
-          <p class="section-tag">Контакты</p>
           <h2>Давайте создавать полезный продукт.</h2>
           <p class="footer-sub">
             Открыт к проектам и стажировкам. Напишите — отвечу в течение дня.
@@ -307,41 +312,67 @@
       </div>
     </footer>
 
+    <span class="sr-only" id="copy-status" role="status" aria-live="polite"></span>
+
     <script>
       // --- Мобильное меню ---
       const menuToggle = document.querySelector('.menu-toggle');
       const navPanel = document.querySelector('.nav-panel');
 
       if (menuToggle && navPanel) {
+        const setMenu = (open) => {
+          navPanel.classList.toggle('is-open', open);
+          menuToggle.setAttribute('aria-expanded', String(open));
+          menuToggle.setAttribute(
+            'aria-label',
+            open ? 'Закрыть меню' : 'Открыть меню'
+          );
+        };
+
         menuToggle.addEventListener('click', () => {
-          const isOpen = navPanel.classList.toggle('is-open');
-          menuToggle.setAttribute('aria-expanded', String(isOpen));
+          setMenu(!navPanel.classList.contains('is-open'));
         });
 
         navPanel.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
-            navPanel.classList.remove('is-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-          });
+          link.addEventListener('click', () => setMenu(false));
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && navPanel.classList.contains('is-open')) {
+            setMenu(false);
+            menuToggle.focus();
+          }
+        });
+
+        document.addEventListener('click', (event) => {
+          if (
+            navPanel.classList.contains('is-open') &&
+            !navPanel.contains(event.target) &&
+            !menuToggle.contains(event.target)
+          ) {
+            setMenu(false);
+          }
         });
 
         window.addEventListener('resize', () => {
-          if (window.innerWidth > 760) {
-            navPanel.classList.remove('is-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-          }
+          if (window.innerWidth > 760) setMenu(false);
         });
       }
 
-      // --- Прогресс скролла ---
+      // --- Прогресс скролла + тень шапки ---
       const progress = document.querySelector('.scroll-progress span');
-      const updateProgress = () => {
+      const topbar = document.querySelector('.topbar-wrap');
+
+      const onScroll = () => {
         const h = document.documentElement;
-        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
-        if (progress) progress.style.transform = `scaleX(${scrolled || 0})`;
+        const max = h.scrollHeight - h.clientHeight;
+        if (progress) {
+          progress.style.transform = `scaleX(${max > 0 ? h.scrollTop / max : 0})`;
+        }
+        if (topbar) topbar.classList.toggle('scrolled', h.scrollTop > 8);
       };
-      document.addEventListener('scroll', updateProgress, { passive: true });
-      updateProgress();
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
 
       // --- Плавное появление секций ---
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -367,22 +398,37 @@
       // --- Светлая / тёмная тема ---
       const themeToggle = document.querySelector('.theme-toggle');
       const root = document.documentElement;
-      const storedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const startTheme = storedTheme || (prefersDark ? 'dark' : 'light');
-      root.setAttribute('data-theme', startTheme);
+      const themeColor = document.getElementById('theme-color');
+
+      const applyTheme = (theme) => {
+        root.setAttribute('data-theme', theme);
+        const dark = theme === 'dark';
+        if (themeToggle) {
+          themeToggle.setAttribute('aria-pressed', String(dark));
+          themeToggle.setAttribute(
+            'aria-label',
+            dark ? 'Включить светлую тему' : 'Включить тёмную тему'
+          );
+        }
+        if (themeColor) themeColor.setAttribute('content', dark ? '#14110d' : '#f5f1eb');
+      };
+
+      applyTheme(root.getAttribute('data-theme') || 'light');
 
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-          const next =
-            root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-          root.setAttribute('data-theme', next);
-          localStorage.setItem('theme', next);
+          const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+          try {
+            localStorage.setItem('theme', next);
+          } catch (e) {}
         });
       }
 
       // --- Копирование e-mail ---
       const copyBtn = document.querySelector('.copy-email');
+      const copyStatus = document.getElementById('copy-status');
+
       if (copyBtn) {
         copyBtn.addEventListener('click', async () => {
           const email = 'kozimirovdima23@gmail.com';
@@ -390,9 +436,13 @@
             await navigator.clipboard.writeText(email);
             const original = copyBtn.textContent;
             copyBtn.textContent = 'Скопировано!';
-            setTimeout(() => (copyBtn.textContent = original), 1600);
+            if (copyStatus) copyStatus.textContent = 'Адрес скопирован в буфер обмена';
+            setTimeout(() => {
+              copyBtn.textContent = original;
+            }, 1600);
           } catch (e) {
             window.location.href = 'mailto:' + email;
+            if (copyStatus) copyStatus.textContent = 'Не удалось скопировать, открываю почту';
           }
         });
       }
