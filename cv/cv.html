@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Дмитрий — Frontend Developer · CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* A4: 210mm × 297mm, печать без полей — поля задаёт .page */
+      @page {
+        size: 210mm 297mm;
+        margin: 0;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "IBM Plex Sans", Arial, sans-serif;
+        color: #171717;
+        line-height: 1.55;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 16mm 18mm 14mm;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ——— шапка ——— */
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .name {
+        font-family: "Unbounded", "IBM Plex Sans", Arial, sans-serif;
+        font-size: 27pt;
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      .brand-rule {
+        width: 46mm;
+        height: 1.1mm;
+        background: #b08a3e;
+        border-radius: 1px;
+        margin: 4.5mm 0 3.5mm;
+      }
+      .role {
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #4d4d4d;
+        margin: 0;
+      }
+      .contacts {
+        text-align: right;
+        font-size: 8.6pt;
+        color: #4d4d4d;
+        line-height: 1.75;
+        white-space: nowrap;
+      }
+      .contacts b {
+        color: #171717;
+        font-weight: 600;
+      }
+      .contacts a {
+        color: #171717;
+        text-decoration: none;
+      }
+      .ph {
+        color: #a8630f;
+        background: #faf1e0;
+        border-radius: 3px;
+        padding: 0 3px;
+      }
+
+      /* ——— секции ——— */
+      .section {
+        margin-top: 8.5mm;
+      }
+      .section-title {
+        font-family: "Unbounded", "IBM Plex Sans", Arial, sans-serif;
+        font-size: 10pt;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin: 0 0 3.5mm;
+        padding-bottom: 2mm;
+        border-bottom: 0.35mm solid #e4ddd2;
+      }
+      .section-title .n {
+        color: #b08a3e;
+        margin-right: 3mm;
+      }
+      p {
+        margin: 0;
+        font-size: 9.6pt;
+      }
+      .lead {
+        max-width: 165mm;
+        color: #333333;
+      }
+
+      /* ——— навыки ——— */
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.2mm;
+      }
+      .skill {
+        font-size: 8.6pt;
+        font-weight: 600;
+        padding: 1.6mm 3.2mm;
+        border: 0.3mm solid #ddd3c2;
+        border-radius: 2mm;
+        color: #171717;
+      }
+      .skill.learning {
+        border-style: dashed;
+        color: #7a5f30;
+        background: #faf7f1;
+      }
+
+      /* ——— проекты ——— */
+      .project {
+        display: grid;
+        grid-template-columns: 52mm 1fr;
+        gap: 5mm;
+        padding: 3.2mm 0;
+        border-bottom: 0.25mm solid #eee7db;
+      }
+      .project:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .project h3 {
+        font-family: "Unbounded", "IBM Plex Sans", Arial, sans-serif;
+        font-size: 9.6pt;
+        font-weight: 600;
+        margin: 0 0 1mm;
+      }
+      .project .meta {
+        font-size: 8.2pt;
+        color: #7a5f30;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+      .project p {
+        font-size: 9.2pt;
+        color: #333333;
+      }
+      .project a {
+        color: #7a5f30;
+        font-size: 8.4pt;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* ——— прочее ——— */
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12mm;
+        font-size: 9.2pt;
+        padding: 1.4mm 0;
+      }
+      .row .k {
+        color: #4d4d4d;
+        width: 34mm;
+        flex-shrink: 0;
+      }
+      .row .v b {
+        font-weight: 600;
+      }
+      .footer {
+        margin-top: auto;
+        padding-top: 5mm;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 0.35mm solid #e4ddd2;
+      }
+      .mark {
+        font-family: "Unbounded", "IBM Plex Sans", Arial, sans-serif;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #4d4d4d;
+      }
+      .mark span {
+        color: #b08a3e;
+      }
+      .updated {
+        font-size: 7.5pt;
+        color: #8a8175;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="top">
+        <div>
+          <h1 class="name">Дмитрий</h1>
+          <div class="brand-rule"></div>
+          <p class="role">Frontend Developer</p>
+        </div>
+        <div class="contacts">
+          <b>Контакты</b><br />
+          г. Ейск<br />
+          <a href="tel:+79996355736">+7 (999) 635-57-36</a><br />
+          <a href="mailto:kozimirovdima23@gmail.com">kozimirovdima23@gmail.com</a><br />
+          <a href="https://github.com/kozimirovdima">github.com/kozimirovdima</a><br />
+          <a href="https://kozimirovdima.github.io/portfolio/">kozimirovdima.github.io/portfolio</a>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title"><span class="n">01</span>О себе</h2>
+        <p class="lead">
+          Начинающий frontend-разработчик. Сделал первый коммерческий сайт —
+          промышленной холодильной компании «Альфа-Холод»: от структуры страниц
+          до адаптивной вёрстки и проверки форм на JavaScript. Развиваюсь в
+          стороне доступности, производительности и аккуратного кода: страницы
+          должны быстро загружаться, работать с клавиатуры и быть понятными на
+          любом экране.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="n">02</span>Навыки</h2>
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Git / GitHub Pages</span>
+          <span class="skill">Flexbox / Grid</span>
+          <span class="skill">Адаптивная вёрстка</span>
+          <span class="skill">Работа с макетами</span>
+          <span class="skill learning">Изучаю: React</span>
+          <span class="skill learning">Изучаю: TypeScript</span>
+          <span class="skill learning">Изучаю: доступность</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="n">03</span>Проекты</h2>
+
+        <div class="project">
+          <div>
+            <h3>Альфа-Холод</h3>
+            <p class="meta">2026 · клиентский сайт · HTML · CSS · JavaScript</p>
+          </div>
+          <div>
+            <p>
+              Корпоративный многостраничный сайт промышленной холодильной
+              компании: каталог оборудования, калькулятор подбора, блок заявки
+              с валидацией данных, анимации при скролле. Тёмная тема, бирюзовый
+              акцент, адаптивная вёрстка.
+            </p>
+            <a href="https://kozimirovdima.github.io/alpa-holod/">kozimirovdima.github.io/alpa-holod</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div>
+            <h3>Лендинг кофейни «Утро»</h3>
+            <p class="meta">2026 · учебный проект · HTML · CSS</p>
+          </div>
+          <div>
+            <p>
+              Адаптивный одностраничный сайт для вымышленной кофейни: сетки на
+              Grid и Flexbox, работа с изображениями, типографика.
+            </p>
+            <a href="https://kozimirovdima.github.io/portfolio-coffe/">kozimirovdima.github.io/portfolio-coffe</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div>
+            <h3>Портфолио</h3>
+            <p class="meta">2026 · этот сайт · HTML · CSS · JavaScript</p>
+          </div>
+          <div>
+            <p>
+              Сайт-визитка с тёмной и светлой темой на CSS-токенах, доступной
+              навигацией (skip-link, aria, focus-стили) и анимациями появления.
+            </p>
+            <a href="https://kozimirovdima.github.io/portfolio/">kozimirovdima.github.io/portfolio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="n">04</span>Образование и языки</h2>
+        <div class="row">
+          <span class="k">Образование</span>
+          <span class="v">СПбГМТУ — 2010–2012 · ЮФУ — 2014–2016</span>
+        </div>
+        <div class="row">
+          <span class="k">Курсы</span>
+          <span class="v">GLO Academy · самообучение</span>
+        </div>
+        <div class="row">
+          <span class="k">Языки</span>
+          <span class="v">Русский — родной · English — средний</span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="mark">Дмитрий <span>·</span> Frontend Developer</span>
+        <span class="updated">Обновлено: ноябрь 2026</span>
+      </footer>
+    </div>
+  </body>
+</html>

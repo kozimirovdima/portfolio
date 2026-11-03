@@ -60,7 +60,11 @@
 
     <header class="topbar-wrap">
       <nav class="topbar container" aria-label="Главное меню">
-        <a href="./" class="brand">Дмитрий</a>
+        <a href="./" class="brand" aria-label="Дмитрий — frontend-разработчик, на главную">
+          <span class="brand-name">Дмитрий</span>
+          <span class="brand-rule" aria-hidden="true"></span>
+          <span class="brand-role">Frontend Developer</span>
+        </a>
 
         <button
           class="menu-toggle"
@@ -294,6 +298,12 @@
           </p>
           <div class="footer-actions">
             <a href="mailto:kozimirovdima23@gmail.com" class="btn">Написать на почту</a>
+            <a
+              href="cv/Dmitry-Frontend-CV.pdf"
+              class="btn btn-secondary"
+              download="Dmitry-Frontend-CV.pdf"
+              >Скачать CV (PDF)</a
+            >
             <button class="btn btn-secondary copy-email" type="button">
               Скопировать e-mail
             </button>
