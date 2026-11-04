@@ -129,3 +129,53 @@
           }
         });
       }
+
+// --- Scrollspy: активный раздел в меню ---
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const spiedSections = [...navLinks]
+  .map((a) => document.querySelector(a.getAttribute('href')))
+  .filter(Boolean);
+
+if ('IntersectionObserver' in window && spiedSections.length) {
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((a) => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    },
+    { rootMargin: '-35% 0px -55% 0px' }
+  );
+  spiedSections.forEach((section) => spy.observe(section));
+}
+
+// --- Tilt-эффект карточек проектов ---
+const finePointer = window.matchMedia('(pointer: fine)').matches;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (finePointer && !reducedMotion) {
+  document.querySelectorAll('.projects-grid .card, .card-featured').forEach((card) => {
+    const maxTilt = card.classList.contains('card-featured') ? 2.2 : 4;
+    let raf = null;
+
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        card.style.transform =
+          'perspective(900px) rotateX(' + (-y * maxTilt).toFixed(2) + 'deg) rotateY(' +
+          (x * maxTilt).toFixed(2) + 'deg) translateY(-2px)';
+      });
+    });
+
+    card.addEventListener('pointerleave', () => {
+      if (raf) cancelAnimationFrame(raf);
+      card.style.transform = '';
+    });
+  });
+}
