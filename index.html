@@ -1,334 +1,272 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Дмитрий — frontend-разработчик | Портфолио</title>
-    <meta
-      name="description"
-      content="Портфолио frontend-разработчика Дмитрия. Коммерческий сайт промышленной компании, лендинги и адаптивная вёрстка на HTML, CSS и JavaScript."
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дмитрий — frontend-разработчик | Портфолио</title>
+  <meta
+    name="description"
+    content="Портфолио frontend-разработчика Дмитрия. Коммерческий сайт промышленной компании, лендинги и адаптивная вёрстка на HTML, CSS и JavaScript."
+  />
 
-    <!-- Open Graph для красивого превью при шаринге -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Дмитрий | Портфолио" />
-    <meta
-      property="og:description"
-      content="Frontend-разработчик. Коммерческий сайт промышленной компании, лендинги и адаптивная вёрстка."
-    />
-    <meta
-      property="og:image"
-      content="https://kozimirovdima.github.io/portfolio/images/og-card.png"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Дмитрий — frontend-разработчик. Портфолио" />
-    <meta property="og:url" content="https://kozimirovdima.github.io/portfolio/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" id="theme-color" content="#f5f1eb" />
+  <!-- Open Graph для красивого превью при шаринге -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Дмитрий | Портфолио" />
+  <meta
+    property="og:description"
+    content="Frontend-разработчик. Коммерческий сайт промышленной компании, лендинги и адаптивная вёрстка."
+  />
+  <meta property="og:image" content="https://kozimirovdima.github.io/portfolio/images/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Дмитрий — frontend-разработчик. Портфолио" />
+  <meta property="og:url" content="https://kozimirovdima.github.io/portfolio/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Тема и JS-гейт до отрисовки: без скрипта контент остаётся видимым -->
-    <script>
-      (function () {
-        var root = document.documentElement;
-        var stored = null;
-        try {
-          stored = localStorage.getItem('theme');
-        } catch (e) {}
-        var theme =
-          stored ||
-          (window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light');
-        root.setAttribute('data-theme', theme);
-        root.classList.add('js');
-      })();
-    </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
 
-  <body>
-    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: linear-gradient(180deg, #f2ede5, #f5f1eb);
+      color: #171717;
+      min-height: 100vh;
+      padding: 24px;
+    }
 
-    <!-- полоса прогресса скролла -->
-    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    /* верхняя строка */
+    .top {
+      max-width: 1240px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #171717; }
+    .brand-mark { display: flex; flex-direction: column; gap: 4px; }
+    .brand-mark i { display: block; height: 7px; border-radius: 3px; background: #171717; }
+    .brand-mark .m1 { width: 22px; opacity: 0.25; }
+    .brand-mark .m2 { width: 28px; margin-left: 7px; opacity: 0.5; }
+    .brand-mark .m3 { width: 34px; margin-left: 14px; background: #b08a3e; }
+    .brand b { font-family: "Unbounded", sans-serif; font-size: 15px; font-weight: 600; }
+    .top-note { font-size: 13px; color: #6d6d6d; }
 
-    <header class="topbar-wrap">
-      <nav class="topbar container" aria-label="Главное меню">
-        <a href="./" class="brand" aria-label="Дмитрий — на главную">
-          <svg class="brand-mark" width="38" height="38" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-            <rect class="brand-layer brand-layer-back" x="7" y="41" width="33" height="9" rx="3" />
-            <rect class="brand-layer brand-layer-mid" x="15" y="27.5" width="33" height="9" rx="3" />
-            <rect class="brand-layer brand-layer-top" x="23" y="14" width="33" height="9" rx="3" />
-          </svg>
-        </a>
+    /* bento-сетка */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 148px;
+      gap: 16px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .tile {
+      background: #fffdfb;
+      border: 1px solid rgba(23, 23, 23, 0.07);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(17, 17, 17, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      overflow: hidden;
+      position: relative;
+    }
+    .tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 44px rgba(17, 17, 17, 0.09);
+    }
+    .tile:focus-visible {
+      outline: 2px solid #b08a3e;
+      outline-offset: 3px;
+    }
 
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-menu"
-          aria-label="Открыть меню"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+    .t-hero { grid-column: span 2; grid-row: span 2; display: flex; flex-direction: column; justify-content: center; }
+    .t-photo { grid-column: span 1; grid-row: span 2; padding: 0; }
+    .t-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .t-status { display: flex; align-items: center; gap: 12px; }
+    .t-facts { display: flex; flex-direction: column; justify-content: center; gap: 10px; font-size: 13px; color: #6d6d6d; }
+    .t-facts b { color: #7a5f30; }
+    .t-wide { grid-column: span 2; }
+    .t-tall { grid-row: span 2; }
+    a.tile { text-decoration: none; color: inherit; }
 
-        <div class="nav-panel" id="site-menu">
-          <div class="nav-links">
-            <a href="#about">Обо мне</a>
-            <a href="#projects">Проекты</a>
-            <a href="#skills">Навыки</a>
-            <a href="#contacts">Контакты</a>
-          </div>
+    .mark { display: flex; flex-direction: column; gap: 5px; margin-bottom: 22px; }
+    .mark span { display: block; height: 8px; border-radius: 3px; }
+    .mark .m1 { width: 46px; background: #171717; opacity: 0.25; }
+    .mark .m2 { width: 58px; margin-left: 12px; background: #171717; opacity: 0.5; }
+    .mark .m3 { width: 70px; margin-left: 24px; background: #b08a3e; }
 
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label="Включить тёмную тему"
-            aria-pressed="false"
-            title="Светлая / тёмная тема"
-          >
-            <span class="theme-icon theme-icon--sun" aria-hidden="true"></span>
-            <span class="theme-icon theme-icon--moon" aria-hidden="true"></span>
-          </button>
+    .hero-name {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(26px, 3.2vw, 40px);
+      font-weight: 600;
+      line-height: 1.14;
+      margin-bottom: 14px;
+    }
+    .hero-name em { font-style: normal; color: #b08a3e; }
+    .hero-lead { color: #4d4d4d; font-size: 15px; max-width: 380px; margin-bottom: 22px; }
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 12px;
+      background: #171717;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+    .btn:hover { background: #b08a3e; }
+    .btn.gold { background: #b08a3e; }
+    .btn.gold:hover { background: #171717; }
 
-          <a href="#contacts" class="btn btn-small">Связаться</a>
-        </div>
-      </nav>
-    </header>
+    .tile h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .tile .hint { color: #6d6d6d; font-size: 13px; }
+    .tile .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 11px;
+      border-radius: 8px;
+      background: rgba(176, 138, 62, 0.12);
+      color: #7a5f30;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #3abf5c;
+      flex-shrink: 0;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .dot { animation: pulse 2.2s ease-in-out infinite; }
+      @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 0 5px rgba(58,191,92,0.14); }
+        50% { box-shadow: 0 0 0 8px rgba(58,191,92,0.07); }
+      }
+    }
 
-    <main id="main-content" tabindex="-1">
-      <section class="hero">
-        <div class="hero-content container">
-          <div class="hero-shell">
-            <div class="hero-copy">
-              <h1>Привет, я <span class="accent-word">Дмитрий</span>.</h1>
-              <p class="lead">
-                Изучаю веб-разработку и делаю простые, понятные интерфейсы.
-                Закрепляю основы HTML, CSS и JavaScript и учусь делать продукты,
-                которыми удобно пользоваться.
-              </p>
-              <div class="hero-actions">
-                <a href="#projects" class="btn">Посмотреть проекты</a>
-                <a href="#contacts" class="btn btn-secondary">Написать</a>
-              </div>
-              <ul class="hero-proof">
-                <li>1 коммерческий сайт</li>
-                <li>2 учебных проекта</li>
-                <li>HTML · CSS · JS</li>
-              </ul>
-            </div>
+    .proj-img {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(23,23,23,0.06);
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chips span {
+      padding: 7px 13px;
+      border-radius: 10px;
+      background: rgba(176, 138, 62, 0.1);
+      color: #7a5f30;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+    .stat { font-family: "Unbounded", sans-serif; font-size: 25px; color: #7a5f30; }
+    .stat-label { color: #6d6d6d; font-size: 12.5px; margin-top: 2px; }
+    .contacts { display: flex; flex-direction: column; gap: 9px; justify-content: center; }
+    .contacts a { color: #171717; font-weight: 600; font-size: 14px; text-decoration: none; }
+    .contacts a:hover { color: #b08a3e; }
 
-            <div class="hero-visual">
-              <div class="visual-card">
-                <img src="images/ava.webp" alt="Фото Дмитрия" />
-                <div class="visual-meta">
-                  <span class="status-dot"></span>
-                  <div>
-                    <strong>Доступен для работы</strong>
-                    <small>Frontend / UI</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    /* адаптив */
+    @media (max-width: 980px) {
+      .bento { grid-template-columns: repeat(2, 1fr); }
+      .t-wide { grid-column: span 2; }
+    }
+    @media (max-width: 560px) {
+      body { padding: 14px; }
+      .top { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
+      .t-hero, .t-photo, .t-status, .t-facts, .t-wide, .t-tall { grid-column: auto; grid-row: auto; }
+      .t-photo { min-height: 300px; }
+      .tile { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a class="brand" href="#">
+      <span class="brand-mark" aria-hidden="true"><i class="m1"></i><i class="m2"></i><i class="m3"></i></span>
+      <b>Дмитрий</b>
+    </a>
+    <span class="top-note">Frontend Developer · Ейск · 2026</span>
+  </div>
 
-      <section id="about" class="section container">
-        <div class="about-grid">
-          <div class="about-photo-wrap reveal">
-            <div class="avatar-frame">
-              <img
-                class="avatar"
-                src="images/about-dev.svg"
-                alt="Иллюстрация веб-разработки"
-              />
-            </div>
-          </div>
-          <div class="about-copy reveal">
-            <h2>От учебных макетов — к коммерческому сайту.</h2>
-            <p>
-              Первый заказ — «Альфа-Холод», сайт промышленной холодильной
-              компании. Там я собрал каталог оборудования, калькулятор подбора и
-              форму заявки: от структуры страницы до адаптива и проверки данных
-              на JavaScript.
-            </p>
-            <p>
-              Сейчас развиваюсь во frontend: разбираюсь в доступности,
-              адаптивности и качестве кода. Мне важно, чтобы страница быстро
-              загружалась, работала с клавиатуры и оставалась понятной на
-              телефоне.
-            </p>
-            <div class="mini-note">
-              <span>В приоритете</span>
-              <strong>Понятная структура, аккуратный код и внимание к деталям</strong>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div class="bento">
+    <div class="tile t-hero">
+      <div class="mark" aria-hidden="true"><span class="m1"></span><span class="m2"></span><span class="m3"></span></div>
+      <h1 class="hero-name">Привет, я <em>Дмитрий</em>.</h1>
+      <p class="hero-lead">Изучаю веб-разработку и делаю простые, понятные интерфейсы. Закрепляю HTML, CSS и JavaScript — и учусь делать продукты, которыми удобно пользоваться.</p>
+      <a class="btn" href="#p-alpa">Посмотреть проекты</a>
+    </div>
 
-      <section id="projects" class="section container">
-        <h2 class="section-tag reveal">Проекты</h2>
+    <div class="tile t-photo"><img src="images/ava.webp" alt="Фото Дмитрия"></div>
 
-        <!-- featured-проект -->
-        <article class="card card-featured reveal">
-          <div class="featured-media">
-            <img
-              src="images/project-alpa.webp"
-              alt="Скриншот сайта «Альфа-Холод»"
-              loading="lazy"
-            />
-          </div>
-          <div class="featured-body">
-            <div class="featured-tags">
-              <span class="badge badge-featured">Работа</span>
-              <span class="badge">HTML</span>
-              <span class="badge">CSS</span>
-              <span class="badge">JavaScript</span>
-            </div>
-            <p class="card-meta">2026 · клиентский сайт</p>
-            <h3>Альфа-Холод</h3>
-            <p>
-              Корпоративный сайт промышленной холодильной компании: каталог
-              оборудования, калькулятор подбора, блок заявки с валидацией и
-              анимации при скролле. Тёмный герой, бирюзовый акцент, адаптивная
-              вёрстка и формы на JavaScript.
-            </p>
-            <div class="featured-actions">
-              <a
-                href="https://kozimirovdima.github.io/alpa-holod/"
-                target="_blank"
-                rel="noreferrer"
-                class="btn"
-                aria-label="Открыть сайт «Альфа-Холод»"
-                >Открыть сайт</a
-              >
-              <a
-                href="https://github.com/kozimirovdima/alpa-holod"
-                target="_blank"
-                rel="noreferrer"
-                class="btn btn-secondary"
-                aria-label="Код «Альфа-Холод» на GitHub"
-                >Код на GitHub</a
-              >
-            </div>
-          </div>
-        </article>
+    <div class="tile t-status">
+      <span class="dot" aria-hidden="true"></span>
+      <div><h3>Доступен для работы</h3><p class="hint">Frontend / UI</p></div>
+    </div>
 
-        <div class="projects-grid">
-          <article class="card reveal">
-            <img
-              class="project-image"
-              src="images/project-cafe.webp"
-              alt="Скриншот лендинга кофейни «Утро»"
-              loading="lazy"
-            />
-            <h3>Лендинг кофейни</h3>
-            <p class="card-meta">2026 · учебный проект · HTML · CSS</p>
-            <p>
-              Адаптивный одностраничный сайт для вымышленной кофейни. Grid,
-              Flexbox, работа с изображениями.
-            </p>
-            <a
-              href="https://kozimirovdima.github.io/portfolio-coffe/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Открыть проект «Лендинг кофейни»"
-              >Открыть проект</a
-            >
-          </article>
+    <div class="tile t-facts">
+      <p><b>1</b> коммерческий сайт</p>
+      <p><b>2</b> учебных проекта</p>
+      <p><b>HTML · CSS · JS</b> — база</p>
+    </div>
 
-          <article class="card reveal">
-            <img
-              class="project-image"
-              src="images/project-portfolio.svg"
-              alt="Иллюстрация портфолио сайта"
-              loading="lazy"
-            />
-            <h3>Портфолио</h3>
-            <p class="card-meta">2026 · этот сайт · HTML · CSS · JS</p>
-            <p>
-              Код этого сайта: токены темы, светлая и тёмная версии, доступная
-              навигация и анимации появления.
-            </p>
-            <a
-              href="https://github.com/kozimirovdima/portfolio"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Смотреть код этого портфолио на GitHub"
-              >Смотреть код</a
-            >
-          </article>
-        </div>
-      </section>
+    <div class="tile t-wide" id="p-alpa">
+      <img class="proj-img" src="images/project-alpa.webp" alt="Скриншот сайта Альфа-Холод">
+      <span class="tag">Работа · 2026</span>
+      <h3>Альфа-Холод</h3>
+      <p class="hint">Клиентский многостраничный сайт: каталог, калькулятор подбора, формы с валидацией. <a href="https://kozimirovdima.github.io/alpa-holod/" target="_blank" rel="noreferrer" style="color:#b08a3e; font-weight:600;">Открыть ↗</a> · <a href="https://github.com/kozimirovdima/alpa-holod" target="_blank" rel="noreferrer" style="color:#6d6d6d;">Код ↗</a></p>
+    </div>
 
-      <section id="skills" class="section container">
-        <h2 class="section-tag reveal">Навыки</h2>
-        <div class="skills reveal">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>Git</span>
-          <span>Flexbox / Grid</span>
-          <span>Адаптивная вёрстка</span>
-        </div>
-        <div class="learning reveal">
-          <span class="learning-label">Изучаю сейчас</span>
-          <div class="learning-tags">
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>Доступность</span>
-          </div>
-        </div>
-      </section>
-    </main>
+    <div class="tile t-wide">
+      <h3>Навыки</h3>
+      <p class="hint">База есть — расту дальше.</p>
+      <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span><span>Flexbox / Grid</span><span>Адаптив</span></div>
+    </div>
 
-    <footer id="contacts" class="footer">
-      <div class="container footer-inner">
-        <div class="footer-copy reveal">
-          <h2>Давайте создавать полезный продукт.</h2>
-          <p class="footer-sub">
-            Открыт к проектам и стажировкам. Напишите — отвечу в течение дня.
-          </p>
-          <div class="footer-actions">
-            <a href="mailto:kozimirovdima23@gmail.com" class="btn">Написать на почту</a>
-            <a
-              href="cv/Dmitry-Frontend-CV.pdf"
-              class="btn btn-secondary"
-              download="Dmitry-Frontend-CV.pdf"
-              >Скачать CV (PDF)</a
-            >
-            <button class="btn btn-secondary copy-email" type="button">
-              Скопировать e-mail
-            </button>
-          </div>
-        </div>
+    <div class="tile t-wide">
+      <img class="proj-img" src="images/project-cafe.webp" alt="Скриншот лендинга кофейни">
+      <span class="tag">Учебный · 2026</span>
+      <h3>Лендинг кофейни «Утро»</h3>
+      <p class="hint">Адаптивный лендинг: Grid, Flexbox, работа с изображениями. <a href="https://kozimirovdima.github.io/portfolio-coffe/" target="_blank" rel="noreferrer" style="color:#b08a3e; font-weight:600;">Открыть ↗</a></p>
+    </div>
 
-        <div class="contact-links reveal">
-          <a href="https://github.com/kozimirovdima" target="_blank" rel="noreferrer"
-            >GitHub</a
-          >
-          <a href="mailto:kozimirovdima23@gmail.com">kozimirovdima23@gmail.com</a>
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        <span>© 2026 Дмитрий. Сделано на HTML, CSS и JavaScript.</span>
-      </div>
-    </footer>
+    <a class="tile" href="https://github.com/kozimirovdima/portfolio" target="_blank" rel="noreferrer">
+      <span class="tag">Этот сайт</span>
+      <h3>Портфолио</h3>
+      <p class="hint">Темы, доступность, scroll-анимации — код открыт.</p>
+    </a>
 
-    <span class="sr-only" id="copy-status" role="status" aria-live="polite"></span>
+    <div class="tile t-tall">
+      <h3>Изучаю сейчас</h3>
+      <p class="hint" style="margin-bottom: 14px;">Прокачиваюсь в:</p>
+      <div class="chips" style="margin-top:0"><span>React</span><span>TypeScript</span><span>Доступность</span></div>
+    </div>
 
-    <script src="script.js"></script>
-  </body>
+    <a class="tile" href="cv/Dmitry-Frontend-CV.pdf" download="Dmitry-Frontend-CV.pdf">
+      <h3>CV (PDF)</h3>
+      <p class="hint">Резюме одной страницей: навыки, проекты, контакты.</p>
+      <p class="btn gold" style="margin-top:16px">⤓ Скачать</p>
+    </a>
+
+    <div class="tile t-wide contacts">
+      <h3 style="margin-bottom:8px">Контакты</h3>
+      <a href="mailto:kozimirovdima23@gmail.com">kozimirovdima23@gmail.com</a>
+      <a href="https://github.com/kozimirovdima" target="_blank" rel="noreferrer">github.com/kozimirovdima</a>
+    </div>
+  </div>
+</body>
 </html>
